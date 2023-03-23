@@ -32,5 +32,9 @@ The `echo: false` option disables the printing of code (only output is displayed
 ```
 
 ```{r}
-Carmen was here again
+#Carmen was here again
+```
+
+```{r}
+8+5
 ```
