@@ -30,3 +30,7 @@ The `echo: false` option disables the printing of code (only output is displayed
 ```{r}
 58/7
 ```
+
+```{r}
+Carmen was here 
+```
