@@ -45,8 +45,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(car)
 library(readxl)
-experiment_data <- read_excel("~/Documents/Experimental Psych/experiment data.xlsx")
-View(experiment_data)
+
 
 
 
