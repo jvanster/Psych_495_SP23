@@ -38,3 +38,73 @@ The `echo: false` option disables the printing of code (only output is displayed
 ```{r}
 8+5
 ```
+
+```{r}
+
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(car)
+library(readxl)
+experiment_data <- read_excel("~/Documents/Experimental Psych/experiment data.xlsx")
+View(experiment_data)
+
+
+
+
+```
+
+```{r}
+{r}
+experiment_ANCOVA = aov(Years ~ Skin_Hue + Bad, data = experiment_data)
+```
+
+```{experiment_ANCOVA}
+
+```
+
+```{r}
+experiment_ANCOVA
+
+```
+
+```{##t.test formula t.test()}
+##approching significance 
+{r}
+t.test(Years ~ Skin_Hue, data = experiment_data)
+
+
+```
+
+```{r}
+t.test(Bad ~ Skin_Hue, data = experiment_data)
+```
+
+```{##run an ancova}
+## IV = Skin_Hue
+## DV = Years
+## Co-V = Bad
+
+{r}
+ANCOVA <- aov(Years ~ Skin_Hue + Bad, data = experiment_data)
+
+
+
+Anova(ANCOVA, type = "III")
+
+
+{r}
+str(experiment_data)
+
+
+```
+
+```{r}
+
+str(experiment_data)
+```
+
+```{r}
+Two_Way_Anova <- aov(Years ~ Hispanic1 + Non_Hispanic +
+                       Hispanic1*Non_Hispanic, data = experiment_data)
+
+```
