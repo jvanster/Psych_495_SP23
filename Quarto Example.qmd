@@ -45,11 +45,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(car)
 library(readxl)
-
-
-
-
-
 ```
 
 ```{r}
@@ -65,42 +60,32 @@ experiment_ANCOVA
 
 ```
 
-```{##t.test formula t.test()}
-##approching significance 
-{r}
+```{r} 
 t.test(Years ~ Skin_Hue, data = experiment_data)
 
-
 ```
+
+
 
 ```{r}
-t.test(Bad ~ Skin_Hue, data = experiment_data)
-```
+##run an ancova} \## IV = Skin_Hue \## DV = Years \## Co-V = Bad
 
-```{##run an ancova}
-## IV = Skin_Hue
-## DV = Years
-## Co-V = Bad
-
-{r}
 ANCOVA <- aov(Years ~ Skin_Hue + Bad, data = experiment_data)
-
-
-
-Anova(ANCOVA, type = "III")
-
-
-{r}
-str(experiment_data)
-
-
 ```
+
+Look at the results
 
 ```{r}
-
-str(experiment_data)
+Anova(ANCOVA, type = "III")
 ```
 
+Look at the structure of the variables
+```{r} 
+str(experiment_data)
+```         
+
+
+Two-Way ANOVA
 ```{r}
 Two_Way_Anova <- aov(Years ~ Hispanic1 + Non_Hispanic +
                        Hispanic1*Non_Hispanic, data = experiment_data)
