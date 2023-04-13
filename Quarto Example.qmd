@@ -91,3 +91,7 @@ Two_Way_Anova <- aov(Years ~ Hispanic1 + Non_Hispanic +
                        Hispanic1*Non_Hispanic, data = experiment_data)
 
 ```
+
+![Light Skinned Mug Shot](/Users/cgarcia394/Documents/advancedday1/001-1 Small.jpeg)
+#why isn't it showing on github
+
