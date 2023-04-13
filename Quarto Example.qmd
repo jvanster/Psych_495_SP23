@@ -92,6 +92,6 @@ Two_Way_Anova <- aov(Years ~ Hispanic1 + Non_Hispanic +
 
 ```
 
-![Light Skinned Mug Shot](/Users/cgarcia394/Documents/advancedday1/001-1 Small.jpeg)
+![Light Skinned Mug Shot](/Users/jamesvanslyke/Documents/Psych_495_SP23/001-1 Small.jpeg)
 #why isn't it showing on github
 
