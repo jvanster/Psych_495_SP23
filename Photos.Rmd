@@ -1,0 +1,28 @@
+---
+title: "Photos"
+author: "Cierra Bustamantes"
+date: "2023-04-13"
+output: html_document
+---
+
+Here are some examples of the photos used in my comparison experiment.
+
+Photos used in my Experiment
+
+Here are some examples of the photos used in my comparison experiment.
+
+Group 1: Fitspiration
+
+![Photo](https://raw.githubusercontent.com/jvanster/Psych_495_SP23/main/IMG_1113.PNG)
+
+Group 2: Body Positivity
+
+```{r}
+knitr::include_graphics("img/IMG_1114.PNG")
+```
+
+Group 3: Travel
+
+```{r}
+knitr::include_graphics("img/IMG_1115.PNG")
+```
