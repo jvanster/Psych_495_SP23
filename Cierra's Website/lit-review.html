@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>lit-review.knit</title>
+
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Advanced Stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-info"></span>
+     
+    About
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Comparison Experiment
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="intro.html">Welcome to our Experiment</a>
+    </li>
+    <li>
+      <a href="lit-review.html">Literature Review</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="bipage.html">Body Image Stats</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Shiny Apps
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="iris.html">Iris Project</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p>title:“lit Review” author:“Cierra Bustamantes” date:‘2023-01-26’
+output: html_document: theme: cosmo — Social media has become more
+popular and prevalent in our everyday lives with Instagram, Twitter,
+TikTok, and other apps keeping nearly everyone connected to their
+friends through a screen and mindlessly scrolling for hours to see the
+latest post. This increase in influence has led to negative impacts on
+mood, self-esteem, self-perception, and mental health. Our study aims to
+find the effect of comparing oneself to the bodies of women in Instagram
+posts and how this can impact body image. Body image and
+self-perception, used in this case interchangeably, is how a person
+views and feels about their body, looks, and attractiveness. Literature
+Review The Relationship between Media and Body Image Studies on the
+effects of viewing photos of thin actresses and models have been
+conducted for years. It was determined that watching tv can cause body
+dissatisfaction (Eisend and Möller, 2007), including commercials of thin
+women which were found to cause an increase of eating disorder
+symptomatology and body dissatisfaction (Grabe et al., 2008). In fact,
+multiple studies have found that viewing images of thin models has
+detrimental effects on women’s body satisfaction (Groesz et al., 2001;
+Moreno-Domínquez et al., 2019; Rounds and Stutts, 2021). However, body
+satisfaction improves when the models being depicted are plus sized
+(Moreno-Domínquez et al., 2019; Groesz et al., 2001) or average sized
+(Groesz et al., 2001). Moreno-Domínquez et al. (2019) had participants
+fill out the Body Satisfaction Questionnaire, which assesses how much
+time the participant thinks about their body shape and size, prior to
+being called and asked to be part of a fashion marketing experiment.
+Each group was shown a slideshow consisting of images of models, and
+asked to compare their own bodies with those of the models. This study
+showed one group images of thin models—those with a BMI below 19—and
+another group images of overweight models—those with a BMI of over 26
+(610). After viewing the slideshow, participants once again took the
+Body Satisfaction Questionnaire which allowed the researchers to compare
+what body-image concerns were constant, and what seemed to be influenced
+by the stimuli presented. Groesz et al.’s (2001) meta-analysis looked at
+articles studying the relationship between media and body satisfaction.
+The inclusion criteria were that the studies sampled females; stimuli
+showed the entire body of thin models; studies that had control groups
+that were shown images of average models, overweight models, attractive
+nonmodels, or objects; and measurement of body dissatisfaction or
+physical attractiveness (7). Overall, their analysis showed that viewing
+images of thin models lowered body satisfaction more than viewing images
+of average models, objects, or overweight models. Also, samples that had
+more body issues affected more negatively than samples with lower body
+image issues, and that those under 19 years old were affected more
+negatively than those 19 and older (11). Rounds and Stutts (2021) had
+female college students’ complete questionnaires on body satisfaction,
+disordered eating attitudes and behaviors, and visual analog scales on
+state body satisfaction and negative mood. One group viewed images of
+all fitspiration images, another all travel images, and the third group
+viewed half fitspiration images and half travel images. The fitspiration
+images came from the #fitspiration page on Instagram and showed images
+of women in the gym or posing while wearing workout clothing. These
+women were either toned or thin. The travel images were from the #travel
+page and had no people depicted. To ensure that participants were paying
+attention to the images, they were asked to explain each photo in a
+sentence (270). Their findings revealed that not only did the
+fitspiration group have lower body satisfaction and a more negative mood
+than the other groups, but that even the group that viewed both
+fitspiration and travel images had lower body satisfaction and more
+negative mood than the control group (272). Another study found that
+young girls and college women who viewed photos of sexualized athletes
+made more comments focused on attractiveness and appearance, commented
+more positively on the athlete’s body, and made more objectifying and
+negative comments about their own bodies (Daniels, 2012). The
+participants who viewed images of athletes that depicted them playing
+their sport made comments focusing on the athlete and their own physical
+skills and made more comments about physical activity and sports than
+appearance (Daniels, 2012). The rise of social media has led to more
+recent studies that focus on how the presence of these apps in our
+everyday lives impacts the body image of users. They have found that
+restrained eating was associated with posting selfies online (Niu et
+al., 2020), and that using social networking sites was correlated with
+internalization of societal beauty standards, high body consciousness,
+and dieting (Tiggemann &amp; Slater, 2013). Societal beauty standards
+set the expectation that women will be thin and have attractive
+features, and put pressure to conform to this image (Jung and Lennon,
+2003). There is also a correlation between the use of these sites and
+loneliness (Pop et al., 2022). A study also found that self-esteem was
+lower in participants who viewed a photo that allowed for upward
+comparison, while photos that caused downward comparison did not cause
+as much change in self-esteem (Vogel et al., 2014). The researchers
+describe upward comparison as comparing oneself to someone or something
+that is viewed as superior, whereas downward comparison is comparing
+oneself to someone or something that is thought of as inferior (Vogel et
+al., 2014, 206). What is downward and upward comparison? This conclusion
+on upward comparison is supported by another study that found that
+exposure to images of thin women working out was found to lower body
+satisfaction and increase negative moods, even when shown alongside
+images that did not depict any people (Rounds and Stutts, 2021). Factors
+that Increase Vulnerability These studies have also found that some
+girls and women are especially vulnerable to the harmful impacts of
+using social media. In fact, Aubrey (2006) found that sexually
+objectifying media only impacts women that are easily influenced by
+media exposure, and that the negative impact is caused by comparing
+oneself to these images. Other studies have found that comparison is
+more likely when the image that is being viewed reflects the ideal body
+type of the participant (Clayton et al., 2017; Aubrey, 2006) and that
+higher levels of comparison are related to having more depressive
+symptomatology (Sinclair &amp; Jordan, 2022). Clayton et al. (2017)
+found that the decrease in body satisfaction was related to the
+participants’ disappointment with themselves at not having achieved
+their body goals. This accounted for the decrease in effect as the
+models grew larger, because the participants were no longer viewing the
+image as a body that they could, but failed to achieve (Clayton et al.,
+2017). Pre-existing body concerns and identification with beauty
+standards also increase vulnerability to negative impacts caused by the
+media. What are pre-existing body concerns? Niu et al. (2020) found that
+self-objectification causes negative emotions, increases body
+evaluations, and increases the pursuit of sexiness and attractiveness.
+Women who accepted societal beauty standards that encourage women to
+look a certain way to be considered attractive (which beauty standards?)
+were more likely to be affected by the media because it reinforced these
+standards (Grabe et al., 2008). Women who accept the standards place
+more importance on appearance, which is related to having poor body
+image, low self-esteem, and negative mood (Jung &amp; Lennon, 2003). Niu
+et al.’s (2020) finding that selfie-posting led to restrained eating was
+not caused necessarily by the selfies, but as an attempt to improve
+their bodies because of their increased focus on appearance and the
+self-objectification that occurred as a result of posting images of
+themselves online. Women who already had poor body satisfaction were
+also more affected by media (Grabe et al., 2008; Groesz et al., 2001).
+Moreno-Domínquez et al. (2019) found that images of thin models
+especially harmed women that already struggled with poor body image, and
+Aubrey (2006) found that women with low self-esteem were particularly
+affected by sexually objectifying media, this was defined in their study
+as television and magazines that portrayed sexual desirability as being
+derived mainly from a woman’s appearance and body. The Present Study The
+above literature suggests that the use of social media, particularly
+media that portrays thin women as the ideal beauty (Moreno-Domínquez et
+al., 2019; Niu et al., 2020; Groesz et al., 2001; Rounds and Stutts,
+2021; Eisend and Möller, 2007) or media that is sexually objectifying
+(Aubrey, 2006; Daniels, 2012), has an effect on a person’s perception of
+themselves. It causes them to internalize their belief that they do not
+meet these standards, which can result in harmful behaviors like
+restrained eating as they attempt to lose weight and become more
+sexually attractive (Niu et al., 2020; Tiggemann &amp; Slater, 2013) and
+lead to over negative feelings about themselves such as low self-esteem,
+loneliness, depressive symptomatology, and body dissatisfaction
+(Sinclair &amp; Jordan, 2022; Clayton et al., 2017; Rounds and Stutts,
+2021; Pop et al., 2022; Grabe et al., 2008). Be more specific, what
+media and how does it effect someone’s perception? Every social media
+platform has an algorithm that recommends posts to a user based on their
+likes and dislikes in order to provide content that will keep the
+consumer on their platform for longer. This algorithm means that many
+users get caught mindlessly scrolling to find posts that they enjoy,
+while not recognizing the impact that these posts are having on them.
+The purpose of this study is to explore the relationship between social
+media and self-perception. We hypothesize that women’s self-perception
+will be negatively impacted by the social media posts from the #fitspo
+page, and that the women in this group will have higher PASTAS scores
+after viewing the images, indicating more anxiety about their
+appearance. We also believe that women’s self-perception will be
+positively impacted in the #bodypositivity group, and that the women in
+this group will have lower PASTAS scores which would indicate less
+anxiety about their appearance.</p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
