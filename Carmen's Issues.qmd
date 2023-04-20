@@ -7,5 +7,3 @@ editor: visual
 ## Figuring out Images
 
 ![Light Skinned Mug Shot](https://raw.githubusercontent.com/jvanster/Psych_495_SP23/main/001-1%20Small.jpeg)
-
-
