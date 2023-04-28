@@ -1,7 +1,8 @@
 library(shiny)
 library(tidyverse)
 options(scipen = 999)
-data("sm_4")
+library(readxl)
+sm_4 <- read_excel("Cierra's Website/sm 4.xlsx")
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
