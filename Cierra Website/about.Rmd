@@ -1,0 +1,9 @@
+---
+title: "About Page"
+author: "Cierra Bustamantes"
+date: '2023-01-19'
+output:
+  html_document:
+      theme: cosmo
+---
+Welcome to all of my stats projects!!!!
